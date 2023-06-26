@@ -32,7 +32,7 @@ if (newVersion === curVersion) {
 }
 
 for (let index = 0; index < newFiles.length; index++) {
-    var res = http.get(unitls.globalParams.gitUrl + newFiles[index]);
+    var res = http.get(url + newFiles[index]);
     if (res.statusCode !== 200) {
         console.log("下载失败:" + newFiles[index]);
         continue;
