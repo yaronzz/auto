@@ -79,7 +79,7 @@ function checkPermissions() {
 let globalParams = {
     isDebug: false,
     deviceVolume: device.getMusicVolume(),
-};
+}
 
 //设置安静环境
 function setQuietEnv(){

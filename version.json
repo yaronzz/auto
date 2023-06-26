@@ -1,6 +1,7 @@
 {
     "version":"1.0.0",
     "files":[
+        "version.json",
         "unitls.js",
         "dazhong.js",
         "kkone.js",
