@@ -73,22 +73,6 @@ function readArticles(numOfArticles) {
         idx++;
         sleep(3000);
 
-        // let p = boundsInside(device.width * 0.1, device.height * 0.1, device.width * 0.9, device.height * 0.9)
-        //     .text(dateStr)
-        //     .findOne(1000);
-        // if (!p)
-        // {
-        //     console.log("获取文章失败,已失败" + failedCounts + "次");
-        //     failedCounts++;
-        //     swipe(device.width / 2, device.height * 0.7, device.width / 2, device.height * 0.2, 500);
-        //     sleep(200);
-        //     continue;
-        // }
-
-        //进入文章页面
-        // unitls.clickWidget(p);
-        // sleep(3000);
-
         //视频跳过
         if (textContains("播放").exists()) {
             backToMain();
@@ -103,16 +87,6 @@ function readArticles(numOfArticles) {
         console.log("阅读第" + readCounts + "篇/共" + numOfArticles + "篇");
         sleep(1000);
 
-        // console.log("收藏中");
-        // click((865 * device.width) / 1080, device.height - 60);
-        // sleep(1000);
-        // console.log("分享中");
-        // click((1000 * device.width) / 1080, device.height - 60);
-        // unitls.clickWidget(textContains("分享给微信").findOne(5000));
-        // sleep(5000);
-        // back();
-        // sleep(3000);
-
         // 获取浏览时长分
         for (let i = 0; i < 5 && !unitls.globalParams.isDebug; i++) {
             sleep(8000 + Math.random() * 4000);
@@ -122,10 +96,6 @@ function readArticles(numOfArticles) {
         
         //返回主页并向下滑动
         backToMain();
-        // if (p.bounds().bottom - 310 < 300)
-        //     swipe(device.width / 2, 610, device.width / 2, 310, 1000);
-        // else
-        //     swipe(device.width / 2, p.bounds().bottom, device.width / 2, 310, 1000);
         sleep(1000);
     }
 
@@ -164,20 +134,6 @@ function watchVideos(numOfVedios) {
         idx++;
         sleep(3000);
 
-        // let p = boundsInside(device.width * 0.1, device.height * 0.1, device.width * 0.9, device.height * 0.9)
-        //     .text(dateStr)
-        //     .findOne(1000);
-        // if (!p) {
-        //     console.log("获取视频失败,已失败" + failedCounts + "次");
-        //     failedCounts++;
-        //     swipe(device.width / 2, device.height * 0.7, device.width / 2, device.height * 0.2, 500);
-        //     sleep(200);
-        //     continue;
-        // }
-
-        // unitls.clickWidget(p);
-        // sleep(3000);
-
         watchCounts++;
 
         if (textContains("新闻联播").exists() && !unitls.globalParams.isDebug) 
@@ -199,10 +155,6 @@ function watchVideos(numOfVedios) {
 
         //返回主页并向下滑动
         backToMain();
-        // if (p.bounds().bottom - 310 < 300)
-        //     swipe(device.width / 2, 610, device.width / 2, 310, 1000);
-        // else
-        //     swipe(device.width / 2, p.bounds().bottom, device.width / 2, 310, 1000);
         sleep(1000);
     }
     console.log("观看视频结束，成功观看" + watchCounts + "个视频");

@@ -87,13 +87,11 @@ function comment() {
 
 
 /******************手机解锁*********************/
-unitls.unlock(unitls.readConfig().phone_password);
+unitls.unlockByConfig();
 
 /*******************签到********************/
 launchApp("上汽大众");
 sleep(8000);
-
-// console.show();
 
 if (toPage('我的')) {
     sleep(2000);
@@ -114,6 +112,3 @@ if (toPage('圈友')) {
 
 sleep(2000);
 home()
-
-
-// console.hide();

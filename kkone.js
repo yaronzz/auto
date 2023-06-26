@@ -61,13 +61,9 @@ function kkoneCheckIn() {
 
 
 //手机解锁
-let params = unitls.readConfig();
-unitls.unlock(params.phone_password);
+unitls.unlockByConfig();
 
 //打开微信
-if (!openWeiXin()) {
-    exit();
+if (openWeiXin()) {
+    kkoneCheckIn();
 }
-
-//KKONE签到
-kkoneCheckIn(); 
