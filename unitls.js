@@ -40,7 +40,7 @@ function sendNotify(title, content) {
         "title": title,
         "desp": content
     });
-    toastLog(res.body.string());
+    //toastLog(res.body.string());
 }
 
 // 点击控件
