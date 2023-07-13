@@ -29,6 +29,20 @@ function unlockByConfig() {
     unlock(params.phone_password);
 }
 
+// 通知
+function sendNotify(title, content) {
+    let params = readConfig();
+    if (params.notify_sendkey.length <= 0)
+        return;
+
+    let url = "https://sctapi.ftqq.com/" + params.notify_sendkey + ".send";
+    var res = http.post(url, {
+        "title": title,
+        "desp": content
+    });
+    toastLog(res.body.string());
+}
+
 // 点击控件
 function clickWidget(widget) {
     if (!widget)
@@ -100,3 +114,4 @@ exports.restoreEnv = restoreEnv;
 exports.readConfig = readConfig;
 exports.clickWidget = clickWidget;
 exports.getDateString = getDateString;
+exports.sendNotify = sendNotify;

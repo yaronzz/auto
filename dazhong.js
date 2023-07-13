@@ -35,10 +35,20 @@ function checkIn() {
     }
     else {
         console.log("签到失败，未能检查到按钮");
+        unitls.sendNotify("大众签到", "签到失败，未能检查到按钮");
         return false;
     }
 
     sleep(5000);
+
+    let text = "签到时长查询异常"
+    if (textContains("已连续签到").exists())
+    {
+        let widget = textContains("已连续签到").findOnce();
+        text = widget.text()
+    }
+    unitls.sendNotify("大众签到", "签到成功," + text);
+    console.log("签到成功," + text);
 
     //打开宝箱流程
     if (id("demoCanvas").exists())
