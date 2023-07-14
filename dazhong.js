@@ -35,7 +35,7 @@ function checkIn() {
     }
     else {
         console.log("签到失败，未能检查到按钮");
-        unitls.sendNotify("大众签到", "签到失败，未能检查到按钮");
+        unitls.sendNotify("大众签到失败", "未能检查到按钮");
         return false;
     }
 
@@ -47,7 +47,7 @@ function checkIn() {
         let widget = textContains("已连续签到").findOnce();
         text = widget.text()
     }
-    unitls.sendNotify("大众签到", "签到成功," + text);
+    unitls.sendNotify("大众签到成功:" + text, "--");
     console.log("签到成功," + text);
 
     //打开宝箱流程
