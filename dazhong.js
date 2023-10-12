@@ -94,6 +94,18 @@ function comment() {
     sleep(2000);
 }
 
+function skipPermissionRequirements() {
+    for (let i = 0; i < 6; i++) {
+        if (textContains("下一步").exists()) {
+            back();
+            sleep(2000);
+        }
+        else{
+            break;
+        }
+    }
+}
+
 
 
 /******************手机解锁*********************/
@@ -102,6 +114,8 @@ unitls.unlockByConfig();
 /*******************签到********************/
 launchApp("上汽大众");
 sleep(8000);
+
+skipPermissionRequirements();
 
 if (toPage('我的')) {
     sleep(2000);
