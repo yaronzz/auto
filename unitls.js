@@ -30,16 +30,24 @@ function unlockByConfig() {
 }
 
 // 通知
-function sendNotify(title, content) {
+function sendNotify(title, content, type) {
     let params = readConfig();
     if (params.notify_sendkey.length <= 0)
         return;
 
-    let url = "https://sctapi.ftqq.com/" + params.notify_sendkey + ".send";
-    var res = http.post(url, {
-        "title": title,
-        "desp": content
-    });
+    if (type == 0) {
+        let url = "https://sctapi.ftqq.com/" + params.notify_sendkey + ".send";
+        var res = http.post(url, {
+            "title": title,
+            "desp": content
+        });
+    } else {
+        let url = "http://www.pushplus.plus/send/" + params.notify_sendkey;
+        var res = http.get(url, {
+            "title": title,
+            "content": content
+        });
+    }
     //toastLog(res.body.string());
 }
 
